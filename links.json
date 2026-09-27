@@ -1,0 +1,29 @@
+{
+  "title": "Aliança SLD",
+  "links": [
+    {
+      "name": "Grupo oficial da Aliança SLD",
+      "category": "Grupos",
+      "description": "Entre para fazer parte da comunidade da Aliança SLD.",
+      "url": "https://chat.whatsapp.com/Jscu8t1ji5bGutPVDC5sNH",
+      "icon": "💬",
+      "button": "Entrar no grupo"
+    },
+    {
+      "name": "Canal da Aliança",
+      "category": "Canais",
+      "description": "Acompanhe as novidades e comunicados da Aliança SLD.",
+      "url": "https://whatsapp.com/channel/0029Vb8j0Rt6buMMNhdfW43X",
+      "icon": "📢",
+      "button": "Abrir canal"
+    },
+    {
+      "name": "Falar com a equipe",
+      "category": "Contato",
+      "description": "Chame a equipe da Aliança SLD pelo WhatsApp.",
+      "url": "https://wa.me/48459197307",
+      "icon": "✉️",
+      "button": "Conversar"
+    }
+  ]
+}

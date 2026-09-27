@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="Acesse os grupos, canais e contatos da Aliança SLD em um só lugar.">
+  <title>Aliança SLD — Central de Links</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--panel2:#151a29;--neon:#00ffd1;--pink:#ff3cac;--orange:#ff8a3d;--text:#eef4ff;--muted:#a6b0c3;--line:#ffffff20}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;margin:0;color:var(--text);background:radial-gradient(ellipse at 12% 8%,#152642 0,transparent 36%),radial-gradient(ellipse at 90% 45%,#321638 0,transparent 34%),var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-image:linear-gradient(#ffffff10 1px,transparent 1px),linear-gradient(90deg,#ffffff10 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+    .wrap{width:min(1060px,92%);margin:auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .brand{color:var(--neon);font-size:.95rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 0 16px #00ffd155}
+    .live{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.8rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 12px var(--neon)}
+    .hero{padding:64px 0 32px;text-align:center}
+    .eyebrow{margin:0 0 10px;color:var(--neon);font-size:.76rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(2.35rem,7vw,4.7rem);line-height:1.02;letter-spacing:-.055em}
+    h1 span{color:var(--neon);text-shadow:0 0 24px #00ffd155}
+    .intro{max-width:620px;margin:18px auto 0;color:var(--muted);font-size:1.05rem}
+    .tools{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:30px auto 18px;max-width:760px}
+    .search{width:100%;padding:14px 16px;border:1px solid #00ffd14d;border-radius:10px;outline:none;background:#111522e8;color:var(--text);font-size:1rem}
+    .search:focus{border-color:var(--neon);box-shadow:0 0 0 3px #00ffd11c}
+    .refresh{padding:13px 16px;border:1px solid #ffffff35;border-radius:10px;background:#111522;color:var(--text);font-weight:700;cursor:pointer}
+    .refresh:hover{border-color:var(--neon);color:var(--neon)}
+    .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:0 auto 28px}
+    .filter{padding:8px 14px;border:1px solid #ffffff2a;border-radius:999px;background:#11152299;color:var(--muted);font-size:.9rem;cursor:pointer}
+    .filter:hover,.filter.active{border-color:var(--pink);color:var(--text);background:#ff3cac1d}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:22px 0 16px}
+    .section-title h2{margin:0;font-size:1.45rem}
+    .count{color:var(--muted);font-size:.88rem}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;padding-bottom:55px}
+    .card{position:relative;display:flex;flex-direction:column;min-height:220px;padding:21px;border:1px solid #ffffff20;border-radius:12px;background:linear-gradient(145deg,#111827ed,#14101fee);box-shadow:0 0 24px #00ffd10a;transition:transform .18s,border-color .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-4px);border-color:#00ffd177;box-shadow:0 9px 34px #00ffd115}
+    .card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .icon{display:grid;place-items:center;width:43px;height:43px;border:1px solid #00ffd14a;border-radius:11px;background:#00ffd110;font-size:1.35rem}
+    .category{padding:5px 9px;border:1px solid #ff3cac55;border-radius:999px;color:#ff85c7;font-size:.72rem;font-weight:700}
+    .card h3{margin:17px 0 7px;font-size:1.12rem;line-height:1.25}
+    .card p{margin:0 0 19px;color:var(--muted);font-size:.92rem}
+    .go{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid #ffffff15;color:var(--neon);font-size:.91rem;font-weight:800;text-decoration:none}
+    .go:hover{color:#fff}
+    .message{margin:18px 0 54px;padding:16px;border:1px solid #ffffff20;border-radius:10px;background:#111522;color:var(--muted);text-align:center}
+    .message.error{border-color:#ff3cac70;color:#ffc1df}
+    footer{padding:22px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;text-align:center}
+    @media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:48px}}
+    @media(max-width:520px){header{align-items:flex-start;flex-direction:column}.tools{grid-template-columns:1fr}.refresh{width:100%}.grid{grid-template-columns:1fr}.card{min-height:190px}.section-title{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">🇹🇷 Aliança SLD</div>
+    <div class="live"><span class="dot" aria-hidden="true"></span><span id="sync-status">Carregando links…</span></div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="main-title">
+      <p class="eyebrow">Uma nova conexão começa aqui</p>
+      <h1 id="main-title">Encontre sua <span>conexão.</span></h1>
+      <p class="intro">Grupos, canais e contatos da Aliança SLD reunidos em um só lugar.</p>
+      <div class="tools">
+        <input id="search" class="search" type="search" placeholder="Buscar grupo, canal ou categoria…" aria-label="Buscar links">
+        <button id="refresh" class="refresh" type="button">↻ Atualizar</button>
+      </div>
+      <nav id="filters" class="filters" aria-label="Filtrar por categoria"></nav>
+    </section>
+    <section aria-labelledby="links-title">
+      <div class="section-title"><h2 id="links-title">Acesse nossos espaços</h2><span class="count" id="count"></span></div>
+      <div id="links-grid" class="grid" aria-live="polite"></div>
+      <div id="message" class="message">Carregando a lista de links…</div>
+    </section>
+  </main>
+  <footer class="wrap">© <span id="year"></span> Aliança SLD · Conexões com respeito e segurança.</footer>
+  <script>
+    // Edite somente links.json. Mantenha esse arquivo junto do index.html no mesmo site.
+    const LINKS_FILE = './links.json';
+    const grid = document.getElementById('links-grid');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+    const messageEl = document.getElementById('message');
+    const statusEl = document.getElementById('sync-status');
+    const countEl = document.getElementById('count');
+    let allLinks = [];
+    let activeCategory = 'Todos';
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function safeUrl(value) {
+      try {
+        const url = new URL(value);
+        return ['https:', 'http:'].includes(url.protocol) ? url.href : null;
+      } catch (_) { return null; }
+    }
+    function make(tag, className, text) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      if (text !== undefined) el.textContent = text;
+      return el;
+    }
+    function renderFilters() {
+      filtersEl.replaceChildren();
+      const categories = ['Todos', ...new Set(allLinks.map(x => x.category).filter(Boolean))];
+      categories.forEach(category => {
+        const button = make('button', 'filter' + (category === activeCategory ? ' active' : ''), category);
+        button.type = 'button';
+        button.addEventListener('click', () => { activeCategory = category; renderFilters(); renderLinks(); });
+        filtersEl.append(button);
+      });
+    }
+    function renderLinks() {
+      const query = searchEl.value.trim().toLocaleLowerCase('pt-BR');
+      const shown = allLinks.filter(link => {
+        const inCategory = activeCategory === 'Todos' || link.category === activeCategory;
+        const haystack = [link.name, link.category, link.description].join(' ').toLocaleLowerCase('pt-BR');
+        return inCategory && haystack.includes(query);
+      });
+      grid.replaceChildren();
+      shown.forEach(link => {
+        const url = safeUrl(link.url);
+        if (!url) return;
+        const card = make('article', 'card');
+        const top = make('div', 'card-top');
+        top.append(make('span', 'icon', link.icon || '🔗'));
+        top.append(make('span', 'category', link.category || 'Links'));
+        card.append(top);
+        card.append(make('h3', '', link.name || 'Link da Aliança SLD'));
+        card.append(make('p', '', link.description || 'Acesse este espaço da Aliança SLD.'));
+        const anchor = make('a', 'go');
+        anchor.href = url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.append(make('span', '', link.button || 'Acessar agora'));
+        anchor.append(make('span', '', '↗'));
+        card.append(anchor);
+        grid.append(card);
+      });
+      countEl.textContent = `${shown.length} ${shown.length === 1 ? 'link' : 'links'}`;
+      messageEl.hidden = shown.length > 0;
+      messageEl.classList.remove('error');
+      messageEl.textContent = shown.length ? '' : (allLinks.length ? 'Não encontrei links com essa busca. Tente outro termo ou categoria.' : 'Ainda não há links cadastrados em links.json.');
+    }
+    async function loadLinks() {
+      statusEl.textContent = 'Atualizando…';
+      try {
+        const response = await fetch(`${LINKS_FILE}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Não foi possível ler links.json');
+        const data = await response.json();
+        if (!Array.isArray(data.links)) throw new Error('O campo "links" precisa ser uma lista');
+        allLinks = data.links.filter(item => item && typeof item === 'object' && safeUrl(item.url));
+        if (data.title) document.title = `${data.title} — Central de Links`;
+        renderFilters();
+        renderLinks();
+        statusEl.textContent = `Atualizado às ${new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'})}`;
+      } catch (error) {
+        statusEl.textContent = 'Não foi possível sincronizar';
+        grid.replaceChildren();
+        messageEl.hidden = false;
+        messageEl.classList.add('error');
+        messageEl.textContent = 'Não consegui carregar links.json. Deixe esse arquivo na mesma pasta/endereço do site e confira se o JSON está válido.';
+        countEl.textContent = '';
+      }
+    }
+    searchEl.addEventListener('input', renderLinks);
+    document.getElementById('refresh').addEventListener('click', loadLinks);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) loadLinks(); });
+    loadLinks();
+    // Busca alterações na lista online enquanto o app/site está aberto.
+    setInterval(() => { if (!document.hidden) loadLinks(); }, 30000);
+  </script>
+</body>
+</html>
